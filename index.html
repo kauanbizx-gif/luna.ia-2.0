@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#171717">
+
+    <title>Luna</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="brand">
+                <div class="brand-icon">☾</div>
+                <span>Luna</span>
+            </div>
+
+            <button
+                class="close-sidebar"
+                id="closeSidebar">
+                ×
+            </button>
+
+        </div>
+
+
+        <button
+            class="new-chat"
+            id="newChat">
+
+            <span>＋</span>
+            <span>Nova conversa</span>
+
+        </button>
+
+
+        <div class="sidebar-section">
+
+            <div class="section-title">
+                Conversas
+            </div>
+
+            <div
+                class="conversation-list"
+                id="conversationList">
+
+                <button class="conversation active">
+                    <span>💬</span>
+                    <span>Nova conversa</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="side-button" id="studyButton">
+                <span>📚</span>
+                <span>Estudos</span>
+            </button>
+
+            <button class="side-button" id="settingsButton">
+                <span>⚙️</span>
+                <span>Configurações</span>
+            </button>
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    K
+                </div>
+
+                <div class="user-info">
+                    <strong>Você</strong>
+                    <small>Luna IA</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- FUNDO DO MENU NO CELULAR -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =========================
+         APLICATIVO
+    ========================== -->
+
+    <main class="app">
+
+
+        <!-- TOPO -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-button"
+                id="openSidebar">
+                ☰
+            </button>
+
+
+            <div class="topbar-title">
+
+                <div class="luna-mini">
+                    ☾
+                </div>
+
+                <div>
+
+                    <strong>Luna</strong>
+
+                    <span>
+                        IA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="more-button"
+                id="moreButton">
+                ⋮
+            </button>
+
+        </header>
+
+
+        <!-- =========================
+             ÁREA DA CONVERSA
+        ========================== -->
+
+        <section
+            class="chat-area"
+            id="chatArea">
+
+
+            <!-- TELA INICIAL -->
+
+            <div
+                class="welcome"
+                id="welcome">
+
+                <div class="luna-logo">
+
+                    <div class="luna-logo-inner">
+                        ☾
+                    </div>
+
+                </div>
+
+
+                <h1>
+                    Oi, eu sou a Luna.
+                </h1>
+
+                <p>
+                    Sua IA para conversar, aprender,
+                    criar ideias e muito mais.
+                </p>
+
+
+                <div class="quick-actions">
+
+                    <button
+                        class="quick-card"
+                        data-message="Quero conversar com você.">
+
+                        <div>💬</div>
+
+                        <strong>
+                            Conversar
+                        </strong>
+
+                        <span>
+                            Bater papo sobre qualquer assunto
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-card"
+                        data-message="Quero estudar.">
+
+                        <div>📚</div>
+
+                        <strong>
+                            Estudar
+                        </strong>
+
+                        <span>
+                            Aprender de um jeito simples
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-card"
+                        data-message="Me ajude a ter uma ideia criativa.">
+
+                        <div>💡</div>
+
+                        <strong>
+                            Criar
+                        </strong>
+
+                        <span>
+                            Ideias, textos e projetos
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-card"
+                        data-message="Quero conversar sobre filmes, séries e jogos.">
+
+                        <div>🎮</div>
+
+                        <strong>
+                            Entretenimento
+                        </strong>
+
+                        <span>
+                            Filmes, séries, jogos e música
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENSAGENS -->
+
+            <div
+                class="messages"
+                id="messages">
+            </div>
+
+
+            <!-- PENSANDO -->
+
+            <div
+                class="thinking"
+                id="thinking">
+
+                <div class="thinking-avatar">
+                    ☾
+                </div>
+
+                <div class="thinking-content">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ÁREA DE DIGITAÇÃO
+        ========================== -->
+
+        <footer class="composer-area">
+
+            <div class="composer-wrapper">
+
+
+                <button
+                    class="add-button"
+                    id="addButton">
+
+                    ＋
+
+                </button>
+
+
+                <textarea
+                    id="messageInput"
+                    rows="1"
+                    placeholder="Mensagem para Luna..."
+                    autocomplete="off">
+                </textarea>
+
+
+                <button
+                    class="voice-button"
+                    id="voiceButton">
+
+                    🎙
+
+                </button>
+
+
+                <button
+                    class="send-button"
+                    id="sendButton">
+
+                    ↑
+
+                </button>
+
+            </div>
+
+
+            <div class="composer-info">
+                Luna pode cometer erros. Verifique informações importantes.
+            </div>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =========================
+         MENU DE OPÇÕES
+    ========================== -->
+
+    <div
+        class="popup"
+        id="morePopup">
+
+        <button id="clearChat">
+            🗑 Limpar conversa
+        </button>
+
+        <button id="aboutLuna">
+            🌙 Sobre a Luna
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL DE ESTUDOS
+    ========================== -->
+
+    <div
+        class="modal-overlay"
+        id="studyModal">
+
+        <div class="modal">
+
+            <button
+                class="modal-close"
+                id="closeStudy">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                📚
+            </div>
+
+            <h2>
+                Estudos
+            </h2>
+
+            <p>
+                Escolha uma matéria para começar.
+            </p>
+
+
+            <div class="subjects">
+
+                <button data-subject="Matemática">
+                    🔢 Matemática
+                </button>
+
+                <button data-subject="Português">
+                    📖 Português
+                </button>
+
+                <button data-subject="História">
+                    🏛 História
+                </button>
+
+                <button data-subject="Geografia">
+                    🌎 Geografia
+                </button>
+
+                <button data-subject="Ciências">
+                    🔬 Ciências
+                </button>
+
+                <button data-subject="Inglês">
+                    🇺🇸 Inglês
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
