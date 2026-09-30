@@ -1,0 +1,1357 @@
+/* =========================
+   CONFIGURAÇÕES
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --bg: #171717;
+    --sidebar: #101010;
+    --panel: #212121;
+    --panel-hover: #2a2a2a;
+
+    --text: #f5f5f5;
+    --muted: #a0a0a0;
+
+    --border: #303030;
+
+    --user: #303030;
+
+    --radius: 18px;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 260px;
+
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: var(--sidebar);
+
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 14px;
+
+    z-index: 100;
+
+}
+
+
+.sidebar-top {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 8px 18px;
+
+}
+
+
+.brand {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+
+.brand-icon {
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #292929;
+
+    font-size: 21px;
+
+}
+
+
+.close-sidebar {
+
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 28px;
+}
+
+
+.new-chat {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--text);
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.new-chat:hover {
+
+    background: var(--panel);
+
+}
+
+
+.sidebar-section {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    margin-top: 24px;
+
+}
+
+
+.section-title {
+
+    color: #777;
+
+    font-size: 12px;
+
+    padding: 0 10px 8px;
+
+}
+
+
+.conversation-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+}
+
+
+.conversation {
+
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    color: #ccc;
+
+    padding: 10px;
+
+    border-radius: 9px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+
+.conversation:hover,
+.conversation.active {
+
+    background: var(--panel);
+
+    color: white;
+
+}
+
+
+.sidebar-bottom {
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 10px;
+
+}
+
+
+.side-button {
+
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    color: #ccc;
+
+    padding: 11px 9px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+}
+
+
+.side-button:hover {
+
+    background: var(--panel);
+
+}
+
+
+.user-profile {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 8px 4px;
+
+}
+
+
+.user-avatar {
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+}
+
+
+.user-info {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.user-info strong {
+
+    font-size: 13px;
+
+}
+
+
+.user-info small {
+
+    color: var(--muted);
+
+    margin-top: 2px;
+
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid rgba(255,255,255,.04);
+
+    position: relative;
+
+}
+
+
+.menu-button,
+.more-button {
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 21px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+}
+
+
+.menu-button {
+
+    display: none;
+
+}
+
+
+.menu-button:hover,
+.more-button:hover {
+
+    background: var(--panel);
+
+}
+
+
+.topbar-title {
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+}
+
+
+.luna-mini {
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 9px;
+
+    background: #292929;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.topbar-title div:last-child {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.topbar-title strong {
+
+    font-size: 14px;
+
+}
+
+
+.topbar-title span {
+
+    color: #777;
+
+    font-size: 10px;
+
+}
+
+
+.more-button {
+
+    margin-left: auto;
+
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-area {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    position: relative;
+
+}
+
+
+.welcome {
+
+    max-width: 850px;
+
+    min-height: 100%;
+
+    margin: auto;
+
+    padding: 70px 25px 160px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.luna-logo {
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 24px;
+
+    background: #292929;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.3);
+
+}
+
+
+.luna-logo-inner {
+
+    font-size: 40px;
+
+}
+
+
+.welcome h1 {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.welcome > p {
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    max-width: 530px;
+
+    line-height: 1.6;
+
+}
+
+
+.quick-actions {
+
+    width: 100%;
+
+    max-width: 680px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+}
+
+
+.quick-card {
+
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--text);
+
+    border-radius: 14px;
+
+    padding: 16px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.quick-card:hover {
+
+    background: var(--panel);
+
+    border-color: #444;
+
+    transform: translateY(-1px);
+
+}
+
+
+.quick-card div {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.quick-card strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.quick-card span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
+   MENSAGENS
+========================= */
+
+.messages {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 25px 20px 180px;
+
+}
+
+
+.message {
+
+    display: flex;
+
+    gap: 13px;
+
+    margin-bottom: 28px;
+
+    animation: messageIn .2s ease;
+
+}
+
+
+@keyframes messageIn {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+
+.message-avatar {
+
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #292929;
+
+    font-size: 16px;
+
+}
+
+
+.message.user {
+
+    justify-content: flex-end;
+
+}
+
+
+.message.user .message-avatar {
+
+    order: 2;
+
+    background: #3a3a3a;
+
+}
+
+
+.message-content {
+
+    max-width: 75%;
+
+    line-height: 1.65;
+
+    font-size: 15px;
+
+}
+
+
+.message.user .message-content {
+
+    background: var(--user);
+
+    padding: 10px 15px;
+
+    border-radius: 18px;
+
+}
+
+
+.message.ai .message-content {
+
+    padding-top: 3px;
+
+}
+
+
+.message-time {
+
+    color: #666;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================
+   PENSANDO
+========================= */
+
+.thinking {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 0 20px 30px;
+
+    display: none;
+
+    gap: 13px;
+
+}
+
+
+.thinking.show {
+
+    display: flex;
+
+}
+
+
+.thinking-avatar {
+
+    width: 32px;
+    height: 32px;
+
+    background: #292929;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.thinking-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    height: 32px;
+
+}
+
+
+.thinking-content span {
+
+    width: 6px;
+    height: 6px;
+
+    background: #888;
+
+    border-radius: 50%;
+
+    animation: typing 1.2s infinite;
+
+}
+
+
+.thinking-content span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.thinking-content span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+
+@keyframes typing {
+
+    0%, 60%, 100% {
+
+        opacity: .3;
+        transform: translateY(0);
+
+    }
+
+    30% {
+
+        opacity: 1;
+        transform: translateY(-3px);
+
+    }
+
+}
+
+
+/* =========================
+   COMPOSER
+========================= */
+
+.composer-area {
+
+    position: fixed;
+
+    left: 260px;
+    right: 0;
+    bottom: 0;
+
+    padding:
+        20px
+        20px
+        18px;
+
+    background:
+        linear-gradient(
+            transparent,
+            var(--bg) 28%
+        );
+
+}
+
+
+.composer-wrapper {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    min-height: 56px;
+
+    background: #212121;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 8px;
+
+    box-shadow:
+        0 8px 35px rgba(0,0,0,.3);
+
+}
+
+
+.composer-wrapper textarea {
+
+    flex: 1;
+
+    resize: none;
+
+    max-height: 150px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    padding: 10px 8px;
+
+}
+
+
+.composer-wrapper textarea::placeholder {
+
+    color: #777;
+
+}
+
+
+.add-button,
+.voice-button,
+.send-button {
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+
+}
+
+
+.add-button:hover,
+.voice-button:hover {
+
+    background: #303030;
+
+    color: white;
+
+}
+
+
+.send-button {
+
+    background: #f5f5f5;
+
+    color: #111;
+
+    font-weight: bold;
+
+}
+
+
+.send-button:hover {
+
+    background: white;
+
+    transform: scale(1.03);
+
+}
+
+
+.composer-info {
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 10px;
+
+    margin-top: 8px;
+
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.popup {
+
+    position: fixed;
+
+    top: 54px;
+    right: 15px;
+
+    width: 190px;
+
+    background: #252525;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 12px;
+
+    padding: 5px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.4);
+
+    display: none;
+
+    z-index: 300;
+
+}
+
+
+.popup.show {
+
+    display: block;
+
+}
+
+
+.popup button {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ddd;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+}
+
+
+.popup button:hover {
+
+    background: #333;
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.65);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 500;
+
+}
+
+
+.modal-overlay.show {
+
+    display: flex;
+
+}
+
+
+.modal {
+
+    width: 100%;
+    max-width: 420px;
+
+    background: #202020;
+
+    border: 1px solid #373737;
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    position: relative;
+
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    right: 15px;
+    top: 12px;
+
+    border: none;
+    background: transparent;
+
+    color: #888;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.modal-icon {
+
+    font-size: 32px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.modal h2 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.modal p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.subjects {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+}
+
+
+.subjects button {
+
+    border: 1px solid #373737;
+
+    background: #292929;
+
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+}
+
+
+.subjects button:hover {
+
+    background: #343434;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+.sidebar-overlay {
+
+    display: none;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        transform: translateX(-100%);
+
+        transition: transform .25s ease;
+
+        width: 280px;
+
+    }
+
+
+    .sidebar.open {
+
+        transform: translateX(0);
+
+    }
+
+
+    .close-sidebar {
+
+        display: block;
+
+    }
+
+
+    .sidebar-overlay {
+
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(0,0,0,.55);
+
+        z-index: 90;
+
+    }
+
+
+    .sidebar-overlay.show {
+
+        display: block;
+
+    }
+
+
+    .app {
+
+        margin-left: 0;
+
+    }
+
+
+    .menu-button {
+
+        display: block;
+
+        margin-right: 8px;
+
+    }
+
+
+    .composer-area {
+
+        left: 0;
+
+        padding: 12px 10px;
+
+    }
+
+
+    .welcome {
+
+        padding:
+            45px
+            18px
+            150px;
+
+    }
+
+
+    .welcome h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .welcome > p {
+
+        font-size: 14px;
+
+    }
+
+
+    .quick-actions {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .quick-card {
+
+        padding: 14px;
+
+    }
+
+
+    .messages {
+
+        padding:
+            20px
+            12px
+            160px;
+
+    }
+
+
+    .message-content {
+
+        max-width: 85%;
+
+    }
+
+
+    .topbar {
+
+        padding: 0 10px;
+
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .welcome h1 {
+
+        font-size: 22px;
+
+    }
+
+
+    .luna-logo {
+
+        width: 60px;
+        height: 60px;
+
+    }
+
+}
